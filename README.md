@@ -1,0 +1,2 @@
+# MailAnalyseApplication
+REST API Test
