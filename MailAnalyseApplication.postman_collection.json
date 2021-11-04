@@ -1,0 +1,154 @@
+{
+	"info": {
+		"_postman_id": "7d508c0d-c5a3-4779-b391-a7dba27cb31a",
+		"name": "MailAnalyseApplication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "MicrosoftApi",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://graph.microsoft.com/v1.0/",
+							"protocol": "https",
+							"host": [
+								"graph",
+								"microsoft",
+								"com"
+							],
+							"path": [
+								"v1.0",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Emails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://graph.microsoft.com/v1.0/",
+							"protocol": "https",
+							"host": [
+								"graph",
+								"microsoft",
+								"com"
+							],
+							"path": [
+								"v1.0",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "grant_type",
+									"value": "client_credentials",
+									"type": "text"
+								},
+								{
+									"key": "client_id",
+									"value": "dc516f84-9366-4edc-9c0a-8e038c26bd4b",
+									"type": "text"
+								},
+								{
+									"key": "client_secret",
+									"value": "beD7Q~rHtuvjVmN410Sve1zF5l4anOz615Jvf",
+									"type": "text"
+								},
+								{
+									"key": "scope",
+									"value": ".default",
+									"type": "text"
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://login.microsoftonline.com/d5d99b8a-61b5-40bd-975a-923eca104608/oauth2/v2.0/token",
+							"protocol": "https",
+							"host": [
+								"login",
+								"microsoftonline",
+								"com"
+							],
+							"path": [
+								"d5d99b8a-61b5-40bd-975a-923eca104608",
+								"oauth2",
+								"v2.0",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "FindAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/mail-analyse/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"mail-analyse",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find Emails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/mail-analyse/emails",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"mail-analyse",
+								"emails"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
