@@ -37,18 +37,16 @@ Entrez ici les instructions pour bien débuter avec votre projet...
 
 ### Installation
 
-_exemple_: Executez la commande ``yarn install`` dans le repertoire frontend
+Executez la commande ``yarn install`` dans le repertoire frontend
 
-_exemple_: Executez la commande ``mvn install`` dans le repertoire backend
-
-Ensuite vous pouvez montrer ce que vous obtenez au final...
+Executez la commande ``mvn install`` dans le repertoire backend
 
 ## Démarrage
 
 
-_exemple_: Executez la commande ``yarn start`` dans le repertoire frontend
+Executez la commande ``yarn start`` dans le repertoire frontend
 
-_exemple_: Executez la commande ``java -jar MailAnalyseApplication-0.0.1-SNAPSHOT.jar `` dans le repertoire backend
+Executez la commande ``java -jar MailAnalyseApplication-0.0.1-SNAPSHOT.jar `` dans le repertoire backend
 
 ## Dépendances et outils
 Backend Généré avec [Spring Initialz](https://start.spring.io/) 
