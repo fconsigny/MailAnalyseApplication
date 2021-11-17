@@ -68,8 +68,4 @@ Dépendances Front :
 * react-router-dom pour la gestion des urls et la navigation 
 * redux-thunk pour faciliter l'usage et l'écriture des events redux
 
-_exemples :_
-* [Materialize.css](http://materializecss.com) - Framework CSS (front-end)
-* [Atom](https://atom.io/) - Editeur de textes
-
 
