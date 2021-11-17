@@ -40,4 +40,7 @@ public class UserDto implements Serializable {
     @JsonProperty("userPrincipalName")
     private String userPrincipalName;
 
+    @JsonProperty("profilePicture")
+    private String profilePicture;
+
 }

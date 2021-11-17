@@ -47,6 +47,7 @@ public class UserMapper {
         dto.setGivenName(userEntity.getGivenName());
         dto.setUserPrincipalName(userEntity.getUserPrincipalName());
         dto.setSurname(userEntity.getSurname());
+        dto.setProfilePicture(userEntity.getProfilePicture());
         return dto;
     }
 

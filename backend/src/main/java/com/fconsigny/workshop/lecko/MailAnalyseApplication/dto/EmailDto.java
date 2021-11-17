@@ -15,6 +15,9 @@ public class EmailDto implements Serializable {
     @JsonProperty("id")
     private String id;
 
+    @JsonProperty("userId")
+    private String userId;
+
     @JsonProperty("internetMessageId")
     private String internetMessageId;
 
@@ -50,5 +53,14 @@ public class EmailDto implements Serializable {
 
     @JsonProperty("fromEmailAddress")
     private String fromEmailAddress;
+
+    @JsonProperty("body")
+    private String body;
+
+    @JsonProperty("toRecipients")
+    private String toRecipients;
+
+    @JsonProperty("importance")
+    private String importance;
 
 }

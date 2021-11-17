@@ -40,86 +40,10 @@ public class UserEntity {
     @Field(value = "surname")
     private String surname;
 
-    @Field(value = "userPrincipalName")
+    @Field(value = "user_principal_Name")
     private String userPrincipalName;
 
-    public String getId() {
-        return id;
-    }
+    @Field(value = "profile_picture")
+    private String profilePicture;
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public String getDisplayName() {
-        return displayName;
-    }
-
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
-    }
-
-    public String getGivenName() {
-        return givenName;
-    }
-
-    public void setGivenName(String givenName) {
-        this.givenName = givenName;
-    }
-
-    public String getJobTitle() {
-        return jobTitle;
-    }
-
-    public void setJobTitle(String jobTitle) {
-        this.jobTitle = jobTitle;
-    }
-
-    public String getMobilePhone() {
-        return mobilePhone;
-    }
-
-    public void setMobilePhone(String mobilePhone) {
-        this.mobilePhone = mobilePhone;
-    }
-
-    public String getOfficeLocation() {
-        return officeLocation;
-    }
-
-    public void setOfficeLocation(String officeLocation) {
-        this.officeLocation = officeLocation;
-    }
-
-    public String getPreferredLanguage() {
-        return preferredLanguage;
-    }
-
-    public void setPreferredLanguage(String preferredLanguage) {
-        this.preferredLanguage = preferredLanguage;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getUserPrincipalName() {
-        return userPrincipalName;
-    }
-
-    public void setUserPrincipalName(String userPrincipalName) {
-        this.userPrincipalName = userPrincipalName;
-    }
 }

@@ -5,6 +5,8 @@ import com.microsoft.graph.requests.MessageCollectionPage;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 @Service
 public class MicrosoftEmailServiceApi {
 
@@ -16,7 +18,7 @@ public class MicrosoftEmailServiceApi {
     }
 
     public MessageCollectionPage findEmailsByUserId(String id) {
-        return graphClient.users().byId(id).messages()
+        return Objects.requireNonNull(graphClient.users().byId(id)).messages()
                 .buildRequest()
                 .get();
     }

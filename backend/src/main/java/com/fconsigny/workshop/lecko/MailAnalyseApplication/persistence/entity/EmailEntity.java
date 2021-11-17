@@ -16,6 +16,9 @@ public class EmailEntity {
     @Id
     private String id;
 
+    @Field (value = "user_id")
+    private String userId;
+
     @Indexed(unique = true)
     @Field(value = "internet_message_id")
     private String internetMessageId;
@@ -50,8 +53,17 @@ public class EmailEntity {
     @Field(value = "send_email_address")
     private String senderEmailAddress;
 
-    @Field(value = "send_email_address")
+    @Field(value = "from_email_address")
     private String fromEmailAddress;
+
+    @Field("body")
+    private String body;
+
+    @Field("toRecipients")
+    private String toRecipients;
+
+    @Field("importance")
+    private String importance;
 
 
 }
