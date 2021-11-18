@@ -34,6 +34,7 @@ Entrez ici les instructions pour bien débuter avec votre projet...
 - Node 16
 - Yarn 1.22
 - mongodb 5
+- docker 4.2 (desktop version for windows)
 
 ### Installation
 
@@ -41,12 +42,17 @@ Executez la commande ``yarn install`` dans le repertoire frontend
 
 Executez la commande ``mvn install`` dans le repertoire backend
 
+
 ## Démarrage
 
-
 Executez la commande ``yarn start`` dans le repertoire frontend
+Accédez à l'url http://localhost:8080/users
 
 Executez la commande ``java -jar MailAnalyseApplication-0.0.1-SNAPSHOT.jar `` dans le repertoire backend
+Importez dans postman le fichier ``MailAnalyseApplication.postman_collection.json` pour interragir avec l'API Backend
+* le dossier MicrosoftApi Interragit directement avec l'API de Tests Microsoft, avant quelconque appels, générez un token la requête Get Token 
+
+Executez la commande ``docker-compose up`` dans le repertoire docker
 
 ## Dépendances et outils
 Backend Généré avec [Spring Initialz](https://start.spring.io/) 
