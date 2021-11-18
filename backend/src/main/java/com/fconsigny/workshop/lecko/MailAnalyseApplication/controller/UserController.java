@@ -1,13 +1,10 @@
 package com.fconsigny.workshop.lecko.MailAnalyseApplication.controller;
 
 
-import com.fconsigny.workshop.lecko.MailAnalyseApplication.api.MicrosoftUserServiceApi;
 import com.fconsigny.workshop.lecko.MailAnalyseApplication.dto.UserDto;
-import com.fconsigny.workshop.lecko.MailAnalyseApplication.mapper.UserMapper;
 import com.fconsigny.workshop.lecko.MailAnalyseApplication.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +13,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
 import java.util.List;
 
 @Controller
@@ -48,13 +44,14 @@ public class UserController {
     @ResponseBody
     public byte[] getProfilePicture(@PathVariable  String userId) throws IOException {
         File file = new File(userId + ".jpg");
-        Logger logger = LoggerFactory.getLogger(this.getClass());
+
         if(file.exists()) {
             InputStream inputStream = new FileInputStream(file);
             return inputStream.readAllBytes();
         }
 
         else{
+            Logger logger = LoggerFactory.getLogger(this.getClass());
             logger.info("Enable to find the requested picture");
             return null;
         }

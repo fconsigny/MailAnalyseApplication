@@ -1,6 +1,5 @@
 import { MDBNavbar, MDBNavbarBrand, MDBBreadcrumb, MDBBreadcrumbItem } from 'mdb-react-ui-kit';
 
-
 const BreadCrump = (pageContext) => {
 
   const arrayPath = pageContext.pageContext.location.pathname.split('/')

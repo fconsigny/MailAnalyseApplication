@@ -1,19 +1,17 @@
 package com.fconsigny.workshop.lecko.MailAnalyseApplication.api;
 
-import com.microsoft.graph.requests.*;
+import com.microsoft.graph.http.GraphServiceException;
+import com.microsoft.graph.requests.GraphServiceClient;
+import com.microsoft.graph.requests.ProfilePhotoStreamRequest;
+import com.microsoft.graph.requests.UserCollectionPage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import com.microsoft.graph.http.GraphServiceException;
 
 @Service
 public class MicrosoftUserServiceApi {
@@ -40,7 +38,6 @@ public class MicrosoftUserServiceApi {
             Path path = Path.of(userId + ".jpg");
             String str_path =   Files.write(path,s).toString();
             return str_path;
-
 
         } catch (GraphServiceException e) {
             Logger logger = LoggerFactory.getLogger(this.getClass());

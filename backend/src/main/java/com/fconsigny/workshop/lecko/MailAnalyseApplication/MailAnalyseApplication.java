@@ -1,6 +1,5 @@
 package com.fconsigny.workshop.lecko.MailAnalyseApplication;
 
-import com.fconsigny.workshop.lecko.MailAnalyseApplication.runner.ApplicationStartedRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

@@ -1,9 +1,9 @@
-import React, { Component } from "react";
+import { Component } from "react";
 import { withRouter } from 'react-router-dom';
 import { compose } from 'redux'
 import { connect } from 'react-redux'
 
-import { MDBContainer, MDBRow, MDBCol , MDBAvatar} from 'mdbreact';
+import { MDBContainer, MDBRow, MDBCol, MDBAvatar } from 'mdbreact';
 
 import ReactHtmlParser from 'react-html-parser';
 
@@ -11,60 +11,72 @@ class MailDetailsPage extends Component {
 
 
     render() {
-        const mail = this.props.currentEmail
-        console.log(mail)
 
-        console.log(this.props.mails)
+        const mail = this.props.currentEmail
 
         return (
 
             <MDBContainer>
 
 
-            <MDBRow className="square border " >
+                <MDBRow className="square border " >
 
-            <MDBCol>
-            <MDBAvatar className='mx-auto mb-2'>
-                            <img src={ "https://cdn-icons-png.flaticon.com/512/149/149071.png"}
+                    <MDBCol size='2'>
+                        <MDBAvatar className=' mt-1 mb-1'>
+                            <img src={"https://cdn-icons-png.flaticon.com/512/149/149071.png"}
                                 alt=""
                                 className="rounded-circle z-depth-1 img-fluid" />
                         </MDBAvatar>
-            </MDBCol>
+                    </MDBCol>
 
-            <MDBCol md="8" className="top: 50%">
-                <p> {mail.fromEmailAddress}</p>
-                <p> À {mail.toRecipients}</p>
-            </MDBCol>
+                    <MDBCol size='8'>
+                        <div className="mt-4">
+                            <p> <b>From:</b> {mail.fromEmailAddress ? mail.fromEmailAddress.name : null}   '{mail.fromEmailAddress ? mail.fromEmailAddress.emailAddress : null}'</p>
+                            <p> <b>To: </b> {mail.senderEmailAddress ? mail.senderEmailAddress.name : null} '{mail.senderEmailAddress ? mail.senderEmailAddress.emailAddress : null}' </p>
+                            <p> <b>cc: </b> {
+                                mail.toRecipients.forEach(element => {
+                                    return (
+                                        <p>{element.name} {element.emailAddress} </p>
 
-            <MDBCol md="2">
-            {new Date(mail.receivedDateTime).toDateString()}
-            </MDBCol>
+                                    );
+                                })}</p>
 
-            </MDBRow>
+                            <p><b>Received the : </b>{new Date(mail.receivedDateTime).toDateString()} </p>    
+                        </div>
+                    </MDBCol>
 
-            <MDBRow className="square border " >
-                   <MDBCol> Subject : {mail.subject}</MDBCol> 
+                    <MDBCol>
+                        <div className="mb-1 mr-2">
+                            
+                        </div>
+                    </MDBCol>
+
+                </MDBRow>
+
+                <MDBRow className="square border " >
+                    <MDBCol > <div className="mt-1 mb-1"> <b>Subject :</b> {mail.subject} </div></MDBCol>
                 </MDBRow>
 
                 <MDBRow center className="square border" >
-                <p>{ReactHtmlParser(mail.body)}</p>
+                <MDBCol >
+                <div className="mt-2 mb-2">
+                    <p>{ReactHtmlParser(mail.body)}</p>
+
+                    </div>
+                    </MDBCol>
                 </MDBRow>
 
-                
+
             </MDBContainer>
-
-            
-
         )
     }
 }
 
 
-const mapStateToProps = (state) => (
-    {
-        currentEmail: state.mails.currentMail,
-        mails: state.mails
-    })
+const mapStateToProps = (state) => ({
+    currentEmail: state.mails.currentMail,
+    mails: state.mails
+})
 
 const mapDispatchToProps = (dispatch) => {
     return {

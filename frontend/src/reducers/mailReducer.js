@@ -1,12 +1,12 @@
 
-
-
 const initialState = {
     currentMail: null,
-    mails: []
+    mails: [],
+    emailSended:[]
 }
 
 export const GET_EMAILS = 'GET_EMAILS';
+export const GET_SENDED_EMAILS = 'GET_SENDED_EMAILS'
 export const SET_CURRENT_MAIL = 'SET_CURRENT_MAIL';
 export const UPDATE_EMAIL = 'UPDATE_EMAIL';
 
@@ -23,12 +23,16 @@ export const actionSetCurrentMail = (mail) => {
 export default function mailReducer(state = initialState, action) {
     switch (action.type) {
         case GET_EMAILS:
-
-            console.log('  mail reducer ', action.payload)
             return {
                 ...state,
                 mails: action.payload
             }
+        case GET_SENDED_EMAILS: {
+            return {
+                ...state,
+                emailSended: action.payload
+            }
+        }
         case SET_CURRENT_MAIL:
             return {
                 ...state,

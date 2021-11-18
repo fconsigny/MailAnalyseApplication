@@ -1,10 +1,7 @@
-import React from "react";
-
 import routes from "../../routes/Routes";
 
 import BreadCrump from "./HeaderTabs"
-
-import { BrowserRouter as Router, Route, Link, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const Header = () => {
 

@@ -2,11 +2,15 @@ package com.fconsigny.workshop.lecko.MailAnalyseApplication.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fconsigny.workshop.lecko.MailAnalyseApplication.persistence.entity.EmailTemplateEntity;
+import com.microsoft.graph.models.EmailAddress;
+import com.microsoft.graph.models.Recipient;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -49,16 +53,16 @@ public class EmailDto implements Serializable {
     private String webLink;
 
     @JsonProperty("senderEmailAddress")
-    private String senderEmailAddress;
+    private EmailTemplateDto sender;
 
     @JsonProperty("fromEmailAddress")
-    private String fromEmailAddress;
+    private EmailTemplateDto from;
 
     @JsonProperty("body")
     private String body;
 
     @JsonProperty("toRecipients")
-    private String toRecipients;
+    private List<EmailTemplateDto> toRecipients;
 
     @JsonProperty("importance")
     private String importance;

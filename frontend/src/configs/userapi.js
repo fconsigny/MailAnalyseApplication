@@ -1,6 +1,6 @@
 import API from "./apiconfig"
 
-import { GET_USERS, GET_CURRENT_USER }  from "../reducers/userReducer";
+import { GET_USERS, GET_CURRENT_USER } from "../reducers/userReducer";
 
 export const getUsers = () => async dispatch => {
 

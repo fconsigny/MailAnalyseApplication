@@ -1,5 +1,6 @@
 package com.fconsigny.workshop.lecko.MailAnalyseApplication.persistence.entity;
 
+
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
@@ -8,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -50,20 +52,41 @@ public class EmailEntity {
     @Field(value = "web_link")
     private String webLink;
 
-    @Field(value = "send_email_address")
-    private String senderEmailAddress;
+    @Field(value = "sender")
+    private EmailTemplateEntity sender;
 
-    @Field(value = "from_email_address")
-    private String fromEmailAddress;
+    @Field(value = "from")
+    private EmailTemplateEntity from;
 
     @Field("body")
     private String body;
 
     @Field("toRecipients")
-    private String toRecipients;
+    private List<EmailTemplateEntity> toRecipients;
 
     @Field("importance")
     private String importance;
 
-
+    @Override
+    public String toString() {
+        return "EmailEntity{" +
+                "id='" + id + '\'' +
+                ", userId='" + userId + '\'' +
+                ", internetMessageId='" + internetMessageId + '\'' +
+                ", createdDateTime=" + createdDateTime +
+                ", lastModifiedDateTime=" + lastModifiedDateTime +
+                ", receivedDateTime=" + receivedDateTime +
+                ", sendDateTime=" + sendDateTime +
+                ", hasAttachments=" + hasAttachments +
+                ", subject='" + subject + '\'' +
+                ", bodyPreview='" + bodyPreview + '\'' +
+                ", isRead=" + isRead +
+                ", webLink='" + webLink + '\'' +
+                ", sender=" + sender +
+                ", from=" + from +
+                ", body='" + body + '\'' +
+                ", toRecipients=" + toRecipients +
+                ", importance='" + importance + '\'' +
+                '}';
+    }
 }

@@ -35,7 +35,7 @@ public class UserMapper {
                 .collect(Collectors.toCollection(LinkedList::new));
     }
 
-    public UserDto mapEntityToDto(UserEntity userEntity) {
+    public UserDto fillDto(UserEntity userEntity) {
         UserDto dto = new UserDto();
         dto.setId(userEntity.getId());
         dto.setDisplayName(userEntity.getDisplayName());
@@ -52,7 +52,7 @@ public class UserMapper {
     }
 
     public List<UserDto> mapEntityToDtoList(List<UserEntity> users) {
-        return users.stream().map(this::mapEntityToDto)
+        return users.stream().map(this::fillDto)
                 .collect(Collectors.toList());
     }
 }

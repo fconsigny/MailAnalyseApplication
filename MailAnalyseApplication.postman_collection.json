@@ -102,6 +102,15 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get photo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
 				}
 			]
 		},
@@ -145,6 +154,61 @@
 								"emails"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find picture",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Emails",
+			"item": [
+				{
+					"name": "Update Emails (isRead)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"AAMkADIxMGQyMmUzLWVkYzQtNDM5Ny1iZWIwLTc5ZjliMGNiNDAyZQBGAAAAAADf_nebwtyRRonIW8244Z76BwCLn5a3JAIaTqHm-VT4Yc90AAAAAAEMAACLn5a3JAIaTqHm-VT4Yc90AADmVvQxAAA=\",\r\n    \"userId\": \"48dfcfc9-5624-42e8-9fae-54ba46b50c9f\",\r\n    \"internetMessageId\": \"<odspmicro-PlannerDueDate-b9dcf40e-8bb7-4ef2-a5f1-c1859a11872d-9d6e19e1-724f-4d86-a403-3db7d7f32ec2@RD501AC5C31479>\",\r\n    \"createdDateTime\": \"2021-11-16T15:40:22\",\r\n    \"lastModifiedDateTime\": \"2021-11-16T15:40:24\",\r\n    \"receivedDateTime\": \"2021-11-16T15:40:23\",\r\n    \"sendDateTime\": \"2021-11-16T15:40:18\",\r\n    \"hasAttachments\": false,\r\n    \"subject\": \"You have upcoming tasks due.\",\r\n    \"bodyPreview\": \"Hi Adele,\\r\\nYou have 2 tasks due in Microsoft Planner.\\r\\nUpcoming\\r\\n11/20/2021\\r\\nChannel analysis for print vs digital\\r\\nIn the plan Mark8 project tracking\\r\\n11/23/2021\\r\\nVIP Event [U.S}\\r\\nIn the plan Mark8 project tracking\\r\\n\\r\\nThis notification is sent by Microso\",\r\n    \"isRead\": true,\r\n    \"webLink\": \"https://outlook.office365.com/owa/?ItemID=AAMkADIxMGQyMmUzLWVkYzQtNDM5Ny1iZWIwLTc5ZjliMGNiNDAyZQBGAAAAAADf%2BnebwtyRRonIW8244Z76BwCLn5a3JAIaTqHm%2FVT4Yc90AAAAAAEMAACLn5a3JAIaTqHm%2FVT4Yc90AADmVvQxAAA%3D&exvsurl=1&viewmodel=ReadMessageItem\",\r\n    \"senderEmailAddress\": \"noreply@planner.office365.com\",\r\n    \"fromEmailAddress\": \"noreply@planner.office365.com\",\r\n    \"body\": \"<html dir=\\\"ltr\\\"><head>\\r\\n<meta http-equiv=\\\"Content-Type\\\" content=\\\"text/html; charset=utf-8\\\"></head><body bgcolor=\\\"#ffffff\\\" lang=\\\"EN-US\\\" link=\\\"#333333\\\" vlink=\\\"#6D6D6D\\\" style=\\\"background-color:#ffffff\\\"><table cellpadding=\\\"0\\\" cellspacing=\\\"0\\\" border=\\\"0\\\" style=\\\"width:100%; margin:0 auto; max-width:606px; font-family:'Segoe UI'\\\"></table><table cellspacing=\\\"0\\\" cellpadding=\\\"0\\\" border=\\\"0\\\" width=\\\"95%\\\" role=\\\"presentation\\\"><tbody><tr><td bgcolor=\\\"#ffffff\\\" valign=\\\"top\\\" style=\\\"vertical-align:top; padding:0px 0px 0px 0px\\\"><table width=\\\"100%\\\" cellspacing=\\\"0\\\" cellpadding=\\\"0\\\" border=\\\"0\\\" role=\\\"presentation\\\"><tbody><tr><td valign=\\\"top\\\" align=\\\"left\\\" bgcolor=\\\"#ffffff\\\" style=\\\"padding-top:10px; padding-bottom:14px\\\"><table width=\\\"100%\\\" cellspacing=\\\"0\\\" cellpadding=\\\"0\\\" border=\\\"0\\\" role=\\\"presentation\\\"><tbody><tr><td valign=\\\"top\\\" align=\\\"left\\\" bgcolor=\\\"#ffffff\\\" style=\\\"padding-left:0px\\\"><img alt=\\\"Microsoft\\\" src=\\\"cid:ff2001dc-e3c7-4f5e-bfaf-b862e624612d\\\" width=\\\"99\\\" height=\\\"21\\\" style=\\\"display:block; outline:none; border:none\\\"> </td></tr></tbody></table></td><td valign=\\\"top\\\" align=\\\"right\\\" bgcolor=\\\"#ffffff\\\" style=\\\"padding-top:10px; padding-bottom:14px\\\"><table width=\\\"100%\\\" cellspacing=\\\"0\\\" cellpadding=\\\"0\\\" border=\\\"0\\\" role=\\\"presentation\\\"><tbody><tr><td valign=\\\"top\\\" align=\\\"right\\\" bgcolor=\\\"#ffffff\\\" style=\\\"padding-right:0px\\\"><img alt=\\\"Microsoft Planner\\\" src=\\\"cid:3ae2f574-6bd6-4b5d-b651-1c8e835d803e\\\" width=\\\"138\\\" height=\\\"18\\\" style=\\\"display:block; outline:none; border:none\\\"> </td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><div style=\\\"padding:5px 0px 0px 5px\\\"><table border=\\\"0\\\" cellspacing=\\\"0\\\" cellpadding=\\\"0\\\"><tbody><tr><td width=\\\"64px\\\" style=\\\"width:64px; padding:10px 0px 0px 0px\\\"><div><img border=\\\"0\\\" width=\\\"40px\\\" height=\\\"40px id=\\\" alt=\\\"Microsoft Planner\\\" src=\\\"cid:48fa5d63-bec5-421e-8018-97a4355a2277\\\" style=\\\"height:40px; width:40px\\\"> </div></td><td style=\\\"padding:10px 0px 0px 0px\\\"><table border=\\\"0\\\" cellspacing=\\\"0\\\" cellpadding=\\\"0\\\"><tbody><tr><td style=\\\"padding:0in 0in 8px 0in\\\"><div><span style=\\\"font-size:16px; font-family:Segoe UI,sans-serif; color:#323130; font-style:regular\\\">Hi Adele, </span></div></td></tr><tr><td style=\\\"padding:0in 0in 0in 0in\\\"><div><span style=\\\"font-size:14px; font-family:Segoe UI,sans-serif; color:#323130; font-style:regular\\\">You have 2 tasks due in Microsoft Planner. </span></div></td></tr></tbody></table></td></tr></tbody></table><table><tbody><tr><td style=\\\"padding:32px 0px 4px 0px\\\"><div><span style=\\\"font-size:20px; font-family:Segoe UI,sans-serif; color:#323130; font-style:regular\\\">Upcoming </span></div></td></tr><tr><td style=\\\"border-bottom:1pt solid #eaeaea\\\"><table style=\\\"border-collapse:collapse\\\"><tbody><tr><td style=\\\"padding:12px 8px 0px 0px; width:90px; vertical-align:text-top\\\"><div><span style=\\\"font-size:14px; font-family:Segoe UI,sans-serif; color:#323130; font-style:regular\\\">11/20/2021 </span></div></td><td style=\\\"padding:12px 0px 0px 0px; width:600px\\\"><div><span><a href=\\\"https://westeuroper-notifyp.svc.ms:443/api/v2/tracking/method/Click?mi=4RlunU9yhk2kAz231_Muwg&amp;tc=Link&amp;cs=ade4a02cc327875a3254665904f0bc59&amp;ru=https%3a%2f%2ftasks.office.com%2fM365x762283.onmicrosoft.com%2fen-US%2fHome%2fPlanViews%2fUQKyNdGijk-y_Fg1R8zsL5gADaid%2frnVjQEhqP0eGfzKNdgmwW5gAIjJV%3fType%3dDueDate%26amp%3bChannel%3dEmail%26amp%3bCreatedTime%3d637726740154114692\\\" style=\\\"font-size:14px; font-family:Segoe UI Semibold,sans-serif; color:#323130; text-decoration:underline\\\">Channel analysis for print vs digital</a> </span></div></td></tr><tr><td style=\\\"padding:8px 8px 8px 0px; width:90px\\\"></td><td style=\\\"padding:8px 0px 8px 0px; width:600px\\\"><div><span><span style=\\\"color:#605E5C; font-style:regular; font-size:14px; font-family:Segoe UI,sans-serif\\\">In the plan <u><a href=\\\"https://westeuroper-notifyp.svc.ms:443/api/v2/tracking/method/Click?mi=4RlunU9yhk2kAz231_Muwg&amp;tc=Link&amp;cs=95d9c8e173b9197da0d9ba43844bdcc7&amp;ru=https%3a%2f%2ftasks.office.com%2fM365x762283.onmicrosoft.com%2fen-US%2fHome%2fPlanViews%2fUQKyNdGijk-y_Fg1R8zsL5gADaid%3fType%3dDueDate%26amp%3bChannel%3dEmail%26amp%3bCreatedTime%3d637726740154114692\\\" style=\\\"color:#323130; font-style:regular\\\">Mark8 project tracking</a></u> </span></span></div></td></tr></tbody></table></td></tr><tr><td style=\\\"border-bottom:1pt solid #eaeaea\\\"><table style=\\\"border-collapse:collapse\\\"><tbody><tr><td style=\\\"padding:12px 8px 0px 0px; width:90px; vertical-align:text-top\\\"><div><span style=\\\"font-size:14px; font-family:Segoe UI,sans-serif; color:#323130; font-style:regular\\\">11/23/2021 </span></div></td><td style=\\\"padding:12px 0px 0px 0px; width:600px\\\"><div><span><a href=\\\"https://westeuroper-notifyp.svc.ms:443/api/v2/tracking/method/Click?mi=4RlunU9yhk2kAz231_Muwg&amp;tc=Link&amp;cs=48265735de53604f20f90390e4e33036&amp;ru=https%3a%2f%2ftasks.office.com%2fM365x762283.onmicrosoft.com%2fen-US%2fHome%2fPlanViews%2fUQKyNdGijk-y_Fg1R8zsL5gADaid%2fzLq4AjBK6kCNlH7AAUzspZgAGCi6%3fType%3dDueDate%26amp%3bChannel%3dEmail%26amp%3bCreatedTime%3d637726740154114692\\\" style=\\\"font-size:14px; font-family:Segoe UI Semibold,sans-serif; color:#323130; text-decoration:underline\\\">VIP Event [U.S}</a> </span></div></td></tr><tr><td style=\\\"padding:8px 8px 8px 0px; width:90px\\\"></td><td style=\\\"padding:8px 0px 8px 0px; width:600px\\\"><div><span><span style=\\\"color:#605E5C; font-style:regular; font-size:14px; font-family:Segoe UI,sans-serif\\\">In the plan <u><a href=\\\"https://westeuroper-notifyp.svc.ms:443/api/v2/tracking/method/Click?mi=4RlunU9yhk2kAz231_Muwg&amp;tc=Link&amp;cs=95d9c8e173b9197da0d9ba43844bdcc7&amp;ru=https%3a%2f%2ftasks.office.com%2fM365x762283.onmicrosoft.com%2fen-US%2fHome%2fPlanViews%2fUQKyNdGijk-y_Fg1R8zsL5gADaid%3fType%3dDueDate%26amp%3bChannel%3dEmail%26amp%3bCreatedTime%3d637726740154114692\\\" style=\\\"color:#323130; font-style:regular\\\">Mark8 project tracking</a></u> </span></span></div></td></tr></tbody></table></td></tr></tbody></table></div><p><table><tbody><tr><td style=\\\"padding:48px 0px 16px 0px\\\"><div><span style=\\\"font-size:14px; font-family:Segoe UI,sans-serif; color:#323130\\\">This notification is sent by Microsoft Planner.<br><br>To change your notification settings, go to Planner for web, choose the settings button in the top right, and then select Notifications. <a href=\\\"https://westeuroper-notifyp.svc.ms:443/api/v2/tracking/method/Click?mi=4RlunU9yhk2kAz231_Muwg&amp;tc=Link&amp;cs=f183854d21114f39acdb3a236566f470&amp;ru=https%3a%2f%2fgo.microsoft.com%2ffwlink%2f%3flinkid%3d853944\\\">Learn more</a> </span></div></td></tr><tr><td style=\\\"padding:16px 0px 32px 0px\\\"><div><span style=\\\"font-size:14px; font-family:Segoe UI,sans-serif; color:#323130\\\">Get the Planner app for <a href=\\\"https://westeuroper-notifyp.svc.ms:443/api/v2/tracking/method/Click?mi=4RlunU9yhk2kAz231_Muwg&amp;tc=Link&amp;cs=0b0af950803681b9f9105ea803ff3e62&amp;ru=https%3a%2f%2fgo.microsoft.com%2ffwlink%2f%3flinkid%3d853824\\\">iPhone</a> or <a href=\\\"https://westeuroper-notifyp.svc.ms:443/api/v2/tracking/method/Click?mi=4RlunU9yhk2kAz231_Muwg&amp;tc=Link&amp;cs=0b0af950803681b9f9105ea803ff3e62&amp;ru=https%3a%2f%2fgo.microsoft.com%2ffwlink%2f%3flinkid%3d853824\\\">Android</a> </span></div></td></tr></tbody></table><table cellspacing=\\\"0\\\" cellpadding=\\\"0\\\" border=\\\"0\\\" width=\\\"95%\\\" role=\\\"presentation\\\"><tbody><tr><td bgcolor=\\\"#f0f0f0\\\" valign=\\\"top\\\" style=\\\"vertical-align:top; padding-top:10px\\\"><table width=\\\"100%\\\" cellspacing=\\\"0\\\" cellpadding=\\\"0\\\" border=\\\"0\\\" role=\\\"presentation\\\"><tbody><tr><td bgcolor=\\\"#f0f0f0\\\" style=\\\"font-family:'Segoe UI',SUWR,Verdana,sans-serif; font-size:10px; line-height:14px; color:#6b6b6b; padding-top:18px; padding-left:20px; padding-right:20px; letter-spacing:-0.01em\\\"><p style=\\\"margin:0; padding:0; font-family:'Segoe UI',SUWR,Verdana,sans-serif; font-size:10px; line-height:14px; color:#6b6b6b; letter-spacing:-0.01em\\\">You are receiving this email because you have subscribed to Microsoft Office 365. </p></td></tr><tr><td bgcolor=\\\"#f0f0f0\\\" style=\\\"font-family:'Segoe UI',SUWR,Verdana,sans-serif; font-size:10px; line-height:14px; color:#6b6b6b; padding-top:0px; padding-left:20px; padding-right:20px; letter-spacing:-0.01em\\\"><p style=\\\"margin:0; padding:0; font-family:'Segoe UI',SUWR,Verdana,sans-serif; font-size:10px; line-height:14px; color:#6b6b6b; letter-spacing:-0.01em\\\"><a target=\\\"_blank\\\" href=\\\"https://westeuroper-notifyp.svc.ms:443/api/v2/tracking/method/Click?mi=4RlunU9yhk2kAz231_Muwg&amp;tc=Link&amp;cs=64ebbb2a2fd8f9ac432b0d9328ad4df5&amp;ru=http%3a%2f%2fgo.microsoft.com%2ffwlink%2f%3fLinkId%3d521839\\\" style=\\\"color:#6b6b6c; text-decoration:underline\\\"><strong style=\\\"font-weight:normal; color:#6b6b6c; text-decoration:underline\\\">Privacy Statement.</strong></a> </p></td></tr><tr><td bgcolor=\\\"#f0f0f0\\\" style=\\\"font-family:'Segoe UI',SUWR,Verdana,sans-serif; font-size:10px; line-height:14px; color:#6b6b6b; padding-top:18px; padding-left:20px; padding-right:20px; letter-spacing:-0.01em\\\"><p style=\\\"margin:0; padding:0; font-family:'Segoe UI',SUWR,Verdana,sans-serif; font-size:10px; line-height:14px; color:#6b6b6b; letter-spacing:-0.01em\\\">Microsoft Corporation, One Microsoft Way, Redmond, WA 98052 USA </p></td></tr><tr><td bgcolor=\\\"#f0f0f0\\\" style=\\\"padding-top:20px; padding-bottom:30px; padding-left:20px\\\"><table cellspacing=\\\"0\\\" cellpadding=\\\"0\\\" border=\\\"0\\\" role=\\\"presentation\\\"><tbody><tr><td bgcolor=\\\"#f0f0f0\\\"><img alt=\\\"Microsoft\\\" src=\\\"cid:ff2001dc-e3c7-4f5e-bfaf-b862e624612d\\\" width=\\\"99\\\" height=\\\"21\\\" style=\\\"display:block; outline:none; border:none\\\"></td></tr></tbody></table></td></tr></tbody></table></td></tr></tbody></table><img src=\\\"https://westeuroper-notifyp.svc.ms:443/api/v2/tracking/method/View?mi=4RlunU9yhk2kAz231_Muwg\\\" aria-hidden=\\\"true\\\" role=\\\"presentation\\\" height=\\\"1\\\" width=\\\"1\\\"></p></body></html>\",\r\n    \"toRecipients\": \"AdeleV@M365x762283.OnMicrosoft.com\",\r\n    \"importance\": \"NORMAL\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/mail-analyse/users/48dfcfc9-5624-42e8-9fae-54ba46b50c9f/emails/123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"mail-analyse",
+								"users",
+								"48dfcfc9-5624-42e8-9fae-54ba46b50c9f",
+								"emails",
+								"123"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find email by sender",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": null
 					},
 					"response": []
 				}

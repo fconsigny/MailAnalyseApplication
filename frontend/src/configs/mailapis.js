@@ -1,15 +1,12 @@
 import API from "./apiconfig"
 
-
-import { GET_EMAILS , UPDATE_EMAIL}  from "../reducers/mailReducer";
-
+import { GET_EMAILS, UPDATE_EMAIL, GET_SENDED_EMAILS } from "../reducers/mailReducer";
 
 export const getEmails = (userId) => async dispatch => {
 
-    API.get('/users/'+ userId +'/emails')
+    API.get('/users/' + userId + '/emails')
         .then((response) => {
 
-            console.log("email " + response.data)
             dispatch({
                 type: GET_EMAILS,
                 payload: response.data
@@ -23,23 +20,37 @@ export const getEmails = (userId) => async dispatch => {
 
 export const updateEmail = (userId, email) => async dispatch => {
 
-    const url = '/users/'+ userId +'/emails/' + email.id
+    const url = '/users/' + userId + '/emails/' + email.id
 
-    console.log( " email to update " + email.isRead )
-    console.log( " email to update " + email.id )
-    API.patch(url, email) 
-    .then((response) => {
-
-        console.log("email " + response.data)
-        console.log("email " + response.data.email)
-        console.log("email " + response.data.email.email)
-        dispatch({
-            type: UPDATE_EMAIL,
-            payload: response.data.email
+    API.patch(url, email)
+        .then((response) => {
+            dispatch({
+                type: UPDATE_EMAIL,
+                payload: response.data.email
+            })
         })
-    })
 
-    .catch((error) => {
-        console.log(error)
-    })
+        .catch((error) => {
+            console.log(error)
+        })
+}
+
+export const getEmailSended = (userId, userEmail) => async dispatch => {
+    const url = '/users/' + userId + '/emails/' + userEmail
+
+    API.get(url)
+        .then((response) => {
+
+            console.log(response)
+            console.log(response.data)
+            dispatch({
+                type: GET_SENDED_EMAILS,
+                payload: response.data
+            })
+        })
+
+        .catch((error) => {
+            console.log(error)
+        })
+
 }

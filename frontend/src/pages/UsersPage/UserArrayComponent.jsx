@@ -6,12 +6,11 @@ const UserArrayComponent = (props) => {
 
     return (
 
-        <MDBTable 
-        scrollY
-        maxHeight="100%"
-        sorting={true}
-        striped
-        >
+        <MDBTable
+            scrollY
+            maxHeight="100%"
+            sorting={true}
+            striped>
 
             <MDBTableHead bordered>
                 <tr>

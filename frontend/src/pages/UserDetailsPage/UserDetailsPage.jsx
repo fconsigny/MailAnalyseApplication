@@ -1,9 +1,8 @@
-import React from "react";
 import { Component } from "react";
 
 import { connect } from 'react-redux'
 
-import { MDBContainer, MDBAvatar, MDBRow, MDBPopover, MDBPopoverBody, MDBPopoverHeader, MDBBtn, MDBCol } from 'mdbreact';
+import { MDBContainer, MDBAvatar, MDBRow, MDBBtn, MDBCol } from 'mdbreact';
 
 import { actionSetCurrentMail } from '../../reducers/mailReducer';
 
@@ -35,9 +34,9 @@ class UserDetailsPage extends Component {
         console.log("mail item clicked")
         let url = "/users/details/mails";
 
-        if(mail.isRead === false) {
+        if (mail.isRead === false) {
             mail.isRead = true
-            this.props.updateEmail(this.props.currentUser.id,mail);
+            this.props.updateEmail(this.props.currentUser.id, mail);
             console.log("should update email")
         }
 
@@ -68,7 +67,7 @@ class UserDetailsPage extends Component {
                         <MDBAvatar className=' mt-1 mb-1'>
                             <img src={currentUser.profilePicture ? currentUser.profilePicture : "https://cdn-icons-png.flaticon.com/512/149/149071.png"}
                                 alt=""
-                                className="rounded-circle z-depth-1 img-fluid"/>
+                                className="rounded-circle z-depth-1 img-fluid" />
                         </MDBAvatar>
 
                     </MDBCol>
@@ -100,11 +99,8 @@ class UserDetailsPage extends Component {
 
                 </MDBRow>
 
-                {this.state.isOpen ? <PopoverPage /> : null}
-
             </MDBContainer>
         )
-
 
     }
 
@@ -120,40 +116,8 @@ const mapDispatchToProps = (dispatch) => {
     return {
         loadEmails: (id) => dispatch(getEmails(id)),
         actionSetCurrentMail: (mail) => dispatch(actionSetCurrentMail(mail)),
-        updateEmail: (userId,mail) => dispatch(updateEmail(userId,mail))
+        updateEmail: (userId, mail) => dispatch(updateEmail(userId, mail))
     }
 }
 
 export default compose(withRouter, connect(mapStateToProps, mapDispatchToProps))(UserDetailsPage);
-
-
-const PopoverPage = () => {
-    return (
-        <MDBContainer>
-            <h4 className="mt-5">Popover with image</h4>
-            <div className="d-flex justify-content-center">
-                <MDBPopover
-                    placement="top"
-                    popover
-                    clickable
-                    id="popper5"
-                >
-                    <MDBBtn color="purple">click me</MDBBtn>
-                    <div>
-
-                        <MDBPopoverHeader> HEADER </MDBPopoverHeader>
-                        <MDBPopoverBody>
-                            BODY
-                        </MDBPopoverBody>
-                    </div>
-                </MDBPopover>
-
-            </div>
-        </MDBContainer>
-    )
-}
-
-
-//                            <p>  <i class="fas fa-phone" /> {currentUser.mobilePhone} </p>
-
-// <p> <i class="fas fa-building" /> {currentUser.officeLocation} </p>

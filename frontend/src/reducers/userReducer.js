@@ -1,5 +1,3 @@
-import { User } from "../models/User";
-
 
 const initialState = {
     currentUser: null,
