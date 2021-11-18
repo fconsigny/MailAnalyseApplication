@@ -4,7 +4,6 @@ import { MDBContainer, MDBRow, MDBAvatar, MDBCol } from 'mdbreact';
 
 import { ChartBar, ChartPie } from './CharComponent'
 
-
 import { connect } from 'react-redux'
 
 import { getEmails, getEmailSended } from "../../configs/mailapis";
@@ -26,63 +25,11 @@ class UserMailAnalyticsPage extends Component {
     const currentUser = this.props.currentUser
     const emailSended = this.props.emailSended
 
-    let keyFromEmailAddress = "name"
+    const graphDataFromEmailAddress = this.filterMailDataByFromEmailAddress(mails);
 
-    var emails = mails.map(element => {
-      console.log(element.fromEmailAddress)
-      return element.fromEmailAddress
-    })
+    const graphReceivedDateTime = this.filterMailDataByReceivedDateTime(mails)
 
-
-    const mailDatasFromEmailAddress = this.findOcc(emails, keyFromEmailAddress);
-    const datasFromEmailAddress = mailDatasFromEmailAddress.sort((a, b) => a.name.localeCompare(b.name)).map(mail => mail.occurrence);
-    const labelsFromEmailAddress = [...new Set(mailDatasFromEmailAddress.sort((a, b) => a.name.localeCompare(b.name)).map(mail => mail.name))]; // [ 'A', 'B']
-
-    const graphDataFromEmailAddress = {
-      labels: labelsFromEmailAddress,
-      datasets: [
-        {
-          data: datasFromEmailAddress,
-          backgroundColor: backColours
-        }
-      ]
-    }
-
-
-    for (let i = 0; i < mails.length; i++) {
-      mails[i].receivedDateTime = this.dateConverter(mails[i].receivedDateTime)
-    }
-
-    let keyReceivedDateTime = "receivedDateTime"
-    const mailDatasReceivedDateTime = this.findOcc(mails, keyReceivedDateTime);
-    const datasReceivedDateTime = mailDatasReceivedDateTime.sort((a, b) => a.receivedDateTime > b.receivedDateTime).map(mail => mail.occurrence)
-    const labelsReceivedDateTime = [...new Set(mailDatasReceivedDateTime.sort((a, b) => a.receivedDateTime > b.receivedDateTime).map(mail => mail.receivedDateTime))]
-
-    const graphReceivedDateTime = {
-      labels: labelsReceivedDateTime,
-      datasets: [
-        {
-          data: datasReceivedDateTime,
-          backgroundColor: backColours
-        }
-      ]
-    }
-
-    let keyMailRead = "isRead"
-    const mailDatasIsRead = this.findOcc(mails, keyMailRead);
-    const datasIsRead = mailDatasIsRead.sort((a, b) => Number(a) - Number(b)).map(mail => mail.occurrence)
-    const labelsIsRead = ["Mails lus", "mails non lus"]
-
-    const graphIsRead = {
-      labels: labelsIsRead,
-      datasets: [
-        {
-          data: datasIsRead,
-          backgroundColor: backColours
-        }
-      ]
-    }
-
+    const graphIsRead = this.filterMailDatasByIsRead(mails)
 
     const options = {
       title: {
@@ -97,8 +44,6 @@ class UserMailAnalyticsPage extends Component {
       <MDBContainer>
 
         <MDBRow className="square border " >
-
-
           <MDBCol size='2' >
 
             <MDBAvatar className=' mt-1 mb-1'>
@@ -140,7 +85,7 @@ class UserMailAnalyticsPage extends Component {
         <MDBRow className="square border " size='3'>
 
           <MDBCol size="6">
-            <h2>Received Frequency </h2>
+            <h2>Received date </h2>
             <ChartBar data={graphReceivedDateTime} options={options} width={"30%"} />
           </MDBCol>
 
@@ -156,54 +101,108 @@ class UserMailAnalyticsPage extends Component {
     )
   }
 
-  findOcc(arr, key) {
-    let arr2 = [];
+  findOcc(emails, filterKey) {
+    let filteredEmails = [];
+    emails.forEach((x) => {
 
-
-    arr.forEach((x) => {
-
-      // Checking if there is any object in arr2
+      // Checking if there is any object in filteredEmails which contains the key value
       // which contains the key value
-      if (arr2.some((val) => { return val[key] == x[key] })) {
+      if (filteredEmails.some((val) => { return val[filterKey] == x[filterKey] })) {
 
-        // If yes! then increase the occurrence by 1
-        arr2.forEach((k) => {
-          if (k[key] === x[key]) {
+        //  Increase the occurrence by 1
+        filteredEmails.forEach((k) => {
+          if (k[filterKey] === x[filterKey]) {
             k["occurrence"]++
           }
         })
 
       } else {
-        // If not! Then create a new object initialize 
-        // it with the present iteration key's value and 
-        // set the occurrence to 1
+        // create a new object initialize it with the present iteration key's value and set the occurrence to 1
         let a = {}
-        a[key] = x[key]
+        a[filterKey] = x[filterKey]
         a["occurrence"] = 1
-        arr2.push(a);
+        filteredEmails.push(a);
       }
     })
 
-    return arr2
+    return filteredEmails
   }
 
-  filterMailDataByFromEmailAddress(email, key) {
+  filterMailDataByFromEmailAddress(mails) {
+
+    var emails = mails.map(element => {
+      console.log(element.fromEmailAddress)
+      return element.fromEmailAddress
+    })
+
+    let keyFromEmailAddress = "name"
+
+    const mailDatasFromEmailAddress = this.findOcc(emails, keyFromEmailAddress);
+    const datasFromEmailAddress = mailDatasFromEmailAddress.sort((a, b) => a.name.localeCompare(b.name)).map(mail => mail.occurrence);
+    const labelsFromEmailAddress = [...new Set(mailDatasFromEmailAddress.sort((a, b) => a.name.localeCompare(b.name)).map(mail => mail.name))];
+
+    const graphDataFromEmailAddress = {
+      labels: labelsFromEmailAddress,
+      datasets: [
+        {
+          data: datasFromEmailAddress,
+          backgroundColor: backColours
+        }
+      ]
+    }
+
+    return graphDataFromEmailAddress;
+  }
+
+  filterMailDataByReceivedDateTime(mails) {
+
+
+    for (let i = 0; i < mails.length; i++) {
+      mails[i].receivedDateTime = this.dateConverter(mails[i].receivedDateTime)
+    }
+
+    let keyReceivedDateTime = "receivedDateTime"
+
+    const mailDatasReceivedDateTime = this.findOcc(mails, keyReceivedDateTime);
+    const datasReceivedDateTime = mailDatasReceivedDateTime.sort((a, b) => a.receivedDateTime > b.receivedDateTime).map(mail => mail.occurrence)
+    const labelsReceivedDateTime = [...new Set(mailDatasReceivedDateTime.sort((a, b) => a.receivedDateTime > b.receivedDateTime).map(mail => mail.receivedDateTime))]
+
+    const graphReceivedDateTime = {
+      labels: labelsReceivedDateTime,
+      datasets: [
+        {
+          data: datasReceivedDateTime,
+          backgroundColor: backColours
+        }
+      ]
+    }
+
+    return graphReceivedDateTime
 
   }
 
-  filterMailDataByReceivedDateTime(email, key) {
+  filterMailDatasByIsRead(email) {
+    let keyMailRead = "isRead"
+    const mailDatasIsRead = this.findOcc(email, keyMailRead);
+    const datasIsRead = mailDatasIsRead.sort((a, b) => Number(a) - Number(b)).map(mail => mail.occurrence)
+    const labelsIsRead = ["Mails lus", "mails non lus"]
 
-  }
+    const graphIsRead = {
+      labels: labelsIsRead,
+      datasets: [
+        {
+          data: datasIsRead,
+          backgroundColor: backColours
+        }
+      ]
+    }
 
-  filterMailDatasByIsRead(email, key) {
-
+    return graphIsRead;
   }
 
   dateConverter(date) {
     return moment(new Date(date)).format('LL')
   }
-
-
 
 }
 
