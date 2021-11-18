@@ -6,8 +6,6 @@ export const getUsers = () => async dispatch => {
 
     API.get('/users')
         .then((response) => {
-            console.log("users " + response.data)
-
             dispatch({
                 type: GET_USERS,
                 payload: response.data

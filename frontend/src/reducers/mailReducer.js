@@ -41,7 +41,7 @@ export default function mailReducer(state = initialState, action) {
         case UPDATE_EMAIL:
             return {
                 ...state,
-                currentMail: action.mail
+                currentMail: action.payload
             }
         default:
             return state

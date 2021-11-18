@@ -9,7 +9,7 @@ const Header = () => {
     <Router>
       <Route path="/" render={(history) =>
 
-        <div class="header">
+        <div className="header">
           <BreadCrump pageContext={history} />
 
           <Switch>

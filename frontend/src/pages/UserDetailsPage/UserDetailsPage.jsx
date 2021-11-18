@@ -31,13 +31,11 @@ class UserDetailsPage extends Component {
 
     onMailClick = (mail) => {
 
-        console.log("mail item clicked")
         let url = "/users/details/mails";
 
         if (mail.isRead === false) {
             mail.isRead = true
             this.props.updateEmail(this.props.currentUser.id, mail);
-            console.log("should update email")
         }
 
         this.props.actionSetCurrentMail(mail);
@@ -76,10 +74,10 @@ class UserDetailsPage extends Component {
                     <MDBCol >
                         <div className="mt-4">
 
-                            <h3 className="font-weight-bold dark-grey-text">   {currentUser.displayName} </h3>
+                            <h3 className="font-weight-bold dark-grey-text"> {currentUser.displayName} </h3>
 
-                            <p> <i class="fas fa-user-tie" /> {currentUser.jobTitle}  </p>
-                            <p>  <i class="fas fa-envelope" />  {currentUser.mail} </p>
+                            <p> <i className="fas fa-user-tie" /> {currentUser.jobTitle}  </p>
+                            <p> <i className="fas fa-envelope" />  {currentUser.mail} </p>
                         </div>
                     </MDBCol>
 

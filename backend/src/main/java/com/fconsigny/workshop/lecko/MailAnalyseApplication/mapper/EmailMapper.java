@@ -99,4 +99,51 @@ public class EmailMapper {
                 .map(this::fillDto)
                 .collect(Collectors.toList());
     }
+
+    public EmailEntity mapDtoToEntity(EmailDto dto) {
+
+        EmailEntity entity = new EmailEntity();
+        entity.setId(dto.getId());
+        entity.setUserId(dto.getUserId());
+        entity.setInternetMessageId(dto.getInternetMessageId());
+        entity.setCreatedDateTime(dto.getCreatedDateTime());
+        entity.setLastModifiedDateTime(dto.getLastModifiedDateTime());
+        entity.setSendDateTime(dto.getSendDateTime());
+        entity.setReceivedDateTime(dto.getReceivedDateTime());
+        entity.setBodyPreview(dto.getBodyPreview());
+        entity.setSubject(dto.getSubject());
+        entity.setWebLink(dto.getWebLink());
+        entity.setHasAttachments(dto.isHasAttachments());
+        entity.setRead(dto.isRead());
+        entity.setBody(dto.getBody());
+        entity.setImportance(dto.getImportance());
+
+        if (dto.getFrom() != null) {
+            EmailTemplateEntity emailTemplate = new EmailTemplateEntity(
+                    dto.getFrom().getEmailAddress(),
+                    dto.getFrom().getName());
+            entity.setFrom(emailTemplate);
+        }
+
+        if (dto.getSender() != null) {
+            EmailTemplateEntity emailTemplate = new EmailTemplateEntity(
+                    dto.getFrom().getEmailAddress(),
+                    dto.getFrom().getName());
+            entity.setSender(emailTemplate);
+        }
+
+        List<EmailTemplateDto> recipients = dto.getToRecipients();
+        List<EmailTemplateEntity> emailTemplateEntities = new ArrayList<>();
+        for (EmailTemplateDto emailTemplate : recipients) {
+
+            emailTemplateEntities.add(new EmailTemplateEntity(
+                    emailTemplate.getEmailAddress(),
+                    emailTemplate.getName()
+            ));
+        }
+
+        entity.setToRecipients(emailTemplateEntities);
+
+        return entity;
+    }
 }

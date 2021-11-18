@@ -3,7 +3,7 @@ import { MDBNavbar, MDBNavbarBrand, MDBBreadcrumb, MDBBreadcrumbItem } from 'mdb
 const BreadCrump = (pageContext) => {
 
   const arrayPath = pageContext.pageContext.location.pathname.split('/')
-
+  let BreadcrumbItemKey = 0
   return (
     <MDBNavbar expand='lg' dark bgColor='dark'>
       <MDBNavbarBrand>
@@ -13,7 +13,7 @@ const BreadCrump = (pageContext) => {
       <MDBBreadcrumb>
         {
           arrayPath.map(element => {
-            return <MDBBreadcrumbItem onClick={pageContext.pageContext.history.goBack} >{element}</MDBBreadcrumbItem>
+            return <MDBBreadcrumbItem key={BreadcrumbItemKey++} onClick={pageContext.pageContext.history.goBack} >{element}</MDBBreadcrumbItem>
           })
         }
       </MDBBreadcrumb>

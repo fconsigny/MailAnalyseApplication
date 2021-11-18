@@ -5,6 +5,9 @@ import { connect } from 'react-redux'
 
 import { MDBContainer, MDBRow, MDBCol, MDBAvatar } from 'mdbreact';
 
+import moment from 'moment'
+
+
 import ReactHtmlParser from 'react-html-parser';
 
 class MailDetailsPage extends Component {
@@ -31,26 +34,20 @@ class MailDetailsPage extends Component {
 
                     <MDBCol size='8'>
                         <div className="mt-4">
+                            
                             <p> <b>From:</b> {mail.fromEmailAddress ? mail.fromEmailAddress.name : null}   '{mail.fromEmailAddress ? mail.fromEmailAddress.emailAddress : null}'</p>
                             <p> <b>To: </b> {mail.senderEmailAddress ? mail.senderEmailAddress.name : null} '{mail.senderEmailAddress ? mail.senderEmailAddress.emailAddress : null}' </p>
                             <p> <b>cc: </b> {
                                 mail.toRecipients.forEach(element => {
-                                    return (
-                                        <p>{element.name} {element.emailAddress} </p>
+                                    console.log(element)
+                                    return  <p> {element.name ? element.name : null } '{element.emailAddress ? element.emailAddress : null}'  </p>
+                                })}
+                            </p>
 
-                                    );
-                                })}</p>
-
-                            <p><b>Received the : </b>{new Date(mail.receivedDateTime).toDateString()} </p>    
+                            <p><b>Received at : </b>{
+                            moment(new Date(mail.receivedDateTime)).format('LL') }  </p>
                         </div>
                     </MDBCol>
-
-                    <MDBCol>
-                        <div className="mb-1 mr-2">
-                            
-                        </div>
-                    </MDBCol>
-
                 </MDBRow>
 
                 <MDBRow className="square border " >
@@ -58,11 +55,11 @@ class MailDetailsPage extends Component {
                 </MDBRow>
 
                 <MDBRow center className="square border" >
-                <MDBCol >
-                <div className="mt-2 mb-2">
-                    <p>{ReactHtmlParser(mail.body)}</p>
+                    <MDBCol >
+                        <div className="mt-2 mb-2">
+                            <p>{ReactHtmlParser(mail.body)}</p>
 
-                    </div>
+                        </div>
                     </MDBCol>
                 </MDBRow>
 

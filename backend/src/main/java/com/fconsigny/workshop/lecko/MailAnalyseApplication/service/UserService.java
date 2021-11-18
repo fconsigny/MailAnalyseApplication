@@ -27,7 +27,7 @@ public class UserService {
 
     public UserDto findOneById(String id) {
         Optional<UserEntity> user = userRepository.findById(id);
-        return user.map(userEntity -> userMapper.fillDto(userEntity)).orElse(null);
+        return user.map(userEntity -> userMapper.mapEntityToDto(userEntity)).orElse(null);
     }
 
     public void deleteById( String id) {

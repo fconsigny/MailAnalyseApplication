@@ -6,7 +6,6 @@ export const getEmails = (userId) => async dispatch => {
 
     API.get('/users/' + userId + '/emails')
         .then((response) => {
-
             dispatch({
                 type: GET_EMAILS,
                 payload: response.data
@@ -21,12 +20,12 @@ export const getEmails = (userId) => async dispatch => {
 export const updateEmail = (userId, email) => async dispatch => {
 
     const url = '/users/' + userId + '/emails/' + email.id
-
+    
     API.patch(url, email)
         .then((response) => {
             dispatch({
                 type: UPDATE_EMAIL,
-                payload: response.data.email
+                payload: response.data
             })
         })
 
@@ -40,9 +39,6 @@ export const getEmailSended = (userId, userEmail) => async dispatch => {
 
     API.get(url)
         .then((response) => {
-
-            console.log(response)
-            console.log(response.data)
             dispatch({
                 type: GET_SENDED_EMAILS,
                 payload: response.data

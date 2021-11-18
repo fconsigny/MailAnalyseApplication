@@ -10,6 +10,8 @@ import { getEmails, getEmailSended } from "../../configs/mailapis";
 
 import moment from 'moment'
 
+import Moment from 'moment'
+
 const backColours = ["#ef5350", "#ec407a", "#ab47bc", "#7e57c2", "#5c6bc0", "#42a5f5", "#03a9f4", "#29b6f6", "#26c6da", "#66bb6a", "#9ccc65", "#d4e157", "#ffee58", "#ffca28", "#ffa726", "#ff7043", "#8d6e63", "#bdbdbd", "#78909c"]
 
 class UserMailAnalyticsPage extends Component {
@@ -60,8 +62,8 @@ class UserMailAnalyticsPage extends Component {
             <div className="mt-4">
               <h3 className="font-weight-bold dark-grey-text">   {currentUser.displayName} </h3>
 
-              <p> <i class="fas fa-user-tie" /> {currentUser.jobTitle}  </p>
-              <p>  <i class="fas fa-envelope" />  {currentUser.mail} </p>
+              <p> <i className="fas fa-user-tie" /> {currentUser.jobTitle}  </p>
+              <p>  <i className="fas fa-envelope" />  {currentUser.mail} </p>
             </div>
 
           </MDBCol>
@@ -83,18 +85,18 @@ class UserMailAnalyticsPage extends Component {
 
         </MDBRow>
         <MDBRow className="square border " size='3'>
-
+          <MDBCol size="2">
+            <div  className="mt-4">
+            Sended mails : {emailSended.length}
+            <br />
+            Received mails : {mails.length}
+              </div>
+            
+          </MDBCol>
           <MDBCol size="6">
             <h2>Received date </h2>
             <ChartBar data={graphReceivedDateTime} options={options} width={"30%"} />
           </MDBCol>
-
-          <MDBCol size="6">
-            <p>Mails envoyés : {emailSended.length}</p>
-            <p>Mails Recus : {mails.length}</p>
-          </MDBCol>
-
-
         </MDBRow>
 
       </MDBContainer>
@@ -131,7 +133,6 @@ class UserMailAnalyticsPage extends Component {
   filterMailDataByFromEmailAddress(mails) {
 
     var emails = mails.map(element => {
-      console.log(element.fromEmailAddress)
       return element.fromEmailAddress
     })
 
@@ -161,10 +162,13 @@ class UserMailAnalyticsPage extends Component {
       mails[i].receivedDateTime = this.dateConverter(mails[i].receivedDateTime)
     }
 
+    mails.sort((a, b) => new Moment(a.receivedDateTime).format('YYYYMMDD') - new Moment(b.receivedDateTime).format('YYYYMMDD'))
+
     let keyReceivedDateTime = "receivedDateTime"
 
     const mailDatasReceivedDateTime = this.findOcc(mails, keyReceivedDateTime);
     const datasReceivedDateTime = mailDatasReceivedDateTime.sort((a, b) => a.receivedDateTime > b.receivedDateTime).map(mail => mail.occurrence)
+
     const labelsReceivedDateTime = [...new Set(mailDatasReceivedDateTime.sort((a, b) => a.receivedDateTime > b.receivedDateTime).map(mail => mail.receivedDateTime))]
 
     const graphReceivedDateTime = {
@@ -185,7 +189,8 @@ class UserMailAnalyticsPage extends Component {
     let keyMailRead = "isRead"
     const mailDatasIsRead = this.findOcc(email, keyMailRead);
     const datasIsRead = mailDatasIsRead.sort((a, b) => Number(a) - Number(b)).map(mail => mail.occurrence)
-    const labelsIsRead = ["Mails lus", "mails non lus"]
+
+    const labelsIsRead = mailDatasIsRead.sort((a, b) => Number(a) - Number(b)).map(mail => mail.isRead ? "Read" : "Unread")
 
     const graphIsRead = {
       labels: labelsIsRead,
